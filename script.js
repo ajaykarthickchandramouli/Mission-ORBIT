@@ -12,7 +12,6 @@ let g = 10;
 let s = 0;
 let actualS = 500;
 submit .addEventListener("click", subClicked);
-
 function subClicked() {
     a = Number(acceleration.value);
     t = Number(time.value);
@@ -21,7 +20,7 @@ function subClicked() {
         fuelUsed = k * a * t;
         remainingFuel = initialFuel - fuelUsed
         s = (a - g)*t**2/2;
-        if (Math.abs((s/1000) - actualS) < 0.01 && Math.abs(remainingFuel) > 0){
+        if (Math.abs(Math.abs(actualS) - Math.abs(s)) < 0.01 && Math.abs(remainingFuel) > 0){
             rs.innerText = "Rocket reached the orbit successfully! ", remainingFuel
         }
         else{
