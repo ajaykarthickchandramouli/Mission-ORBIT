@@ -16,15 +16,15 @@ function subClicked() {
     a = Number(acceleration.value);
     t = Number(time.value);
     if(a != 0 && t != 0 && k != 0){
-        rs.innerText = "Rocket launched!";
+        rockstat.innerText = "Rocket launched!";
         fuelUsed = k * a * t;
         remainingFuel = initialFuel - fuelUsed
         s = (a - g)*t**2/2;
-        if (Math.abs(Math.abs(actualS) - Math.abs(s)) < 0.01 && Math.abs(remainingFuel) > 0){
-            rs.innerText = "Rocket reached the orbit successfully! ", remainingFuel
+        if (Math.abs(actualS) - Math.abs(s) < 1 && remainingFuel >=   0){
+            rockstat.innerText = `Rocket reached the orbit successfully! ${remainingFuel}`;
         }
         else{
-            rs.innerText = "Rocket failed!", remainingFuel;
+            rockstat.innerText = `Rocket failed! ${remainingFuel}`;
         }
 
 }
